@@ -20,7 +20,7 @@ Follows Laravel best practices and is fully commented for clarity.
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-username/dts-task-manager.git
+git clone https://github.com/lidichamp/dts-task-manager.git
 cd dts-task-manager
 ```
 
@@ -152,44 +152,6 @@ Alternatively, if you prefer to import manually, an exported version is also inc
 ## 🔐 Authentication (Laravel Sanctum)
 
 This project uses [Laravel Sanctum](https://laravel.com/docs/sanctum) for secure API authentication.
-
-### 🔑 Register
-
-**POST** `/api/register`
-
-```json
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "password"
-}
-```
-
-### 🔑 Login
-
-**POST** `/api/login`
-
-```json
-{
-  "email": "john@example.com",
-  "password": "password"
-}
-```
-
-### 🔐 Securing Requests
-
-Use the returned token from login/register in your request headers:
-
-```
-Authorization: Bearer YOUR_TOKEN
-Accept: application/json
-```
-
-All `/api/tasks` routes are protected and require a valid token.
-
-### 🔓 Logout
-
-**POST** `/api/logout` (with token in headers)
 
 ---
 ## 🎯 Why Laravel?
