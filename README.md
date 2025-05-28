@@ -135,7 +135,7 @@ This collection includes:
 
 Alternatively, if you prefer to import manually, an exported version is also included:
 
-📄 `public/DTS Task Manager API.postman_collection.json`
+📄 ![Postman COllection Json file](public/DTS Task Manager API.postman_collection.json) 
 
 💡 Simply drag the JSON file into Postman or use the “Import” button to get started.
 
