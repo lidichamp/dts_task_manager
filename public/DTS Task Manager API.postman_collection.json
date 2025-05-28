@@ -1,0 +1,873 @@
+{
+	"info": {
+		"_postman_id": "48629e21-0acd-4879-a1d7-9e59c28fca04",
+		"name": "DTS Task Manager API",
+		"description": "API documentation for the DTS Task Manager app submitted for the HMCTS Developer Challenge.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3789962"
+	},
+	"item": [
+		{
+			"name": "List Tasks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/tasks",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tasks"
+					]
+				},
+				"description": "Returns a list of all tasks."
+			},
+			"response": [
+				{
+					"name": "List Tasks",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 May 2025 02:20:00 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Submit monthly finance report\",\n        \"assigned_to\": \"James Smith\",\n        \"description\": \"This task is to ensure all finance reports are accurate and complete.\",\n        \"status\": \"in_progress\",\n        \"due_date\": \"2025-06-09 01:15:59\",\n        \"created_at\": \"2025-05-28T01:15:59.000000Z\",\n        \"updated_at\": \"2025-05-28T01:15:59.000000Z\"\n    },\n    {\n        \"id\": 2,\n        \"title\": \"Update court hearing schedules\",\n        \"assigned_to\": \"Olivia Johnson\",\n        \"description\": \"Court schedules need updating based on latest directives.\",\n        \"status\": \"pending\",\n        \"due_date\": \"2025-05-30 01:15:59\",\n        \"created_at\": \"2025-05-28T01:15:59.000000Z\",\n        \"updated_at\": \"2025-05-28T01:15:59.000000Z\"\n    },\n    {\n        \"id\": 4,\n        \"title\": \"Prepare Q2 performance review\",\n        \"assigned_to\": \"Emma Wilson\",\n        \"description\": \"Prepare and review the quarterly performance against KPIs.\",\n        \"status\": \"in_progress\",\n        \"due_date\": \"2025-06-11 01:15:00\",\n        \"created_at\": \"2025-05-28T01:15:59.000000Z\",\n        \"updated_at\": \"2025-05-28T01:30:15.000000Z\"\n    },\n    {\n        \"id\": 5,\n        \"title\": \"Organise team planning workshop\",\n        \"assigned_to\": \"Noah Jones\",\n        \"description\": \"Facilitate a planning session for the new project roadmap.\",\n        \"status\": \"pending\",\n        \"due_date\": \"2025-06-24 01:15:59\",\n        \"created_at\": \"2025-05-28T01:15:59.000000Z\",\n        \"updated_at\": \"2025-05-28T01:15:59.000000Z\"\n    },\n    {\n        \"id\": 8,\n        \"title\": \"Schedule stakeholder meeting\",\n        \"assigned_to\": \"Mia Harris\",\n        \"description\": \"Coordinate meeting times with internal and external stakeholders.\",\n        \"status\": \"completed\",\n        \"due_date\": \"2025-06-19 01:15:59\",\n        \"created_at\": \"2025-05-28T01:15:59.000000Z\",\n        \"updated_at\": \"2025-05-28T01:15:59.000000Z\"\n    },\n    {\n        \"id\": 9,\n        \"title\": \"Review code quality metrics\",\n        \"assigned_to\": \"Ethan Martin\",\n        \"description\": \"Run static code analysis and address technical debt.\",\n        \"status\": \"completed\",\n        \"due_date\": \"2025-06-05 01:15:59\",\n        \"created_at\": \"2025-05-28T01:15:59.000000Z\",\n        \"updated_at\": \"2025-05-28T01:15:59.000000Z\"\n    },\n    {\n        \"id\": 10,\n        \"title\": \"Launch internal training portal\",\n        \"assigned_to\": \"Amelia Thompson\",\n        \"description\": \"Set up onboarding content for the new joiners’ platform.\",\n        \"status\": \"pending\",\n        \"due_date\": \"2025-06-14 01:15:59\",\n        \"created_at\": \"2025-05-28T01:15:59.000000Z\",\n        \"updated_at\": \"2025-05-28T01:15:59.000000Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Create Task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Submit report to manager\",\n    \"assigned_to\": \"James Smith\",\n    \"description\": \"This is a test task for demo purposes.\",\n    \"status\": \"pending\",\n    \"due_date\": \"2025-05-28\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tasks",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tasks"
+					]
+				},
+				"description": "Creates a new task."
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Submit report to manager\",\n    \"assigned_to\": \"Lydia Robert-Edia\",\n    \"description\": \"This is a test task for demo purposes.\",\n    \"status\": \"pending\",\n    \"due_date\": \"2025-05-28\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 May 2025 02:52:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"Submit report to manager\",\n    \"assigned_to\": \"Lydia Robert-Edia\",\n    \"description\": \"This is a test task for demo purposes.\",\n    \"status\": \"pending\",\n    \"due_date\": \"2025-05-28\",\n    \"updated_at\": \"2025-05-28T02:52:36.000000Z\",\n    \"created_at\": \"2025-05-28T02:52:36.000000Z\",\n    \"id\": 22\n}"
+				},
+				{
+					"name": "Validation Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Test Endpoint\",\n    \"assigned_to\": \"Lydia Robert-Edia\",\n    \"description\": \"This is a test task for demo purposes.\",\n    \"status\": \"pending\",\n    \"due_date\": 1245\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 May 2025 02:59:46 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"The due date field must be a valid date. (and 1 more error)\",\n    \"errors\": {\n        \"due_date\": [\n            \"The due date field must be a valid date.\",\n            \"The due date field must be a date after or equal to today.\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Task by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/tasks/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tasks",
+						"1"
+					]
+				},
+				"description": "Fetches a single task by ID."
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 May 2025 02:51:19 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Task retrieved successfully.\",\n    \"task\": {\n        \"id\": 1,\n        \"title\": \"Submit monthly finance report\",\n        \"assigned_to\": \"James Smith\",\n        \"description\": \"This task is to ensure all finance reports are accurate and complete.\",\n        \"status\": \"in_progress\",\n        \"due_date\": \"2025-06-09 01:15:59\",\n        \"created_at\": \"2025-05-28T01:15:59.000000Z\",\n        \"updated_at\": \"2025-05-28T01:15:59.000000Z\"\n    }\n}"
+				},
+				{
+					"name": "Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/100",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"100"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 May 2025 02:51:37 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Task not found.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Task",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Updated task title\",\n    \"assigned_to\": \"Olivia Johnson\",\n    \"description\": \"Updated task description.\",\n    \"status\": \"in_progress\",\n    \"due_date\": \"2025-05-28\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tasks/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tasks",
+						"1"
+					]
+				},
+				"description": "Updates an existing task."
+			},
+			"response": [
+				{
+					"name": "Update Task",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated task title\",\n    \"assigned_to\": \"Lydia Awe\",\n    \"description\": \"Updated task description.\",\n    \"status\": \"in_progress\",\n    \"due_date\": \"2025-05-28\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tasks/2/status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"2",
+								"status"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 May 2025 03:05:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Task updated successfully.\",\n    \"task\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/tasks/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tasks",
+						"1"
+					]
+				},
+				"description": "Deletes the specified task."
+			},
+			"response": [
+				{
+					"name": "Delete Task",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/tasks/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 May 2025 03:02:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Task deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Unauthorized",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 May 2025 03:53:03 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Invalid credentials.\"\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"lidi@example.com\",\n    \"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 May 2025 04:14:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Login successful.\",\n    \"token\": \"2|zgVN23hiUWbDJZxOQElmz57VgoHZ1W2sxWWu0iIlba87bfb1\",\n    \"user\": {\n        \"id\": 1,\n        \"name\": \"Lydia Robert-Awe\",\n        \"email\": \"lidi@example.com\",\n        \"email_verified_at\": null,\n        \"created_at\": \"2025-05-28T03:54:51.000000Z\",\n        \"updated_at\": \"2025-05-28T03:54:51.000000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Sign Up",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lydia Awe\",\r\n    \"email\": \"lidiy@example.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 May 2025 04:11:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User registered successfully.\",\n    \"token\": \"1|JIU1Ae9v1o06DZZqpMq8alGBrfaKuEVP8nu0xEgrd61540d7\",\n    \"user\": {\n        \"name\": \"Lydia Awe\",\n        \"email\": \"lidiy@example.com\",\n        \"updated_at\": \"2025-05-28T04:11:13.000000Z\",\n        \"created_at\": \"2025-05-28T04:11:13.000000Z\",\n        \"id\": 2\n    }\n}"
+				},
+				{
+					"name": "Success Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lydia Awe\",\r\n    \"email\": \"lidiy@example.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 May 2025 04:11:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User registered successfully.\",\n    \"token\": \"1|JIU1Ae9v1o06DZZqpMq8alGBrfaKuEVP8nu0xEgrd61540d7\",\n    \"user\": {\n        \"name\": \"Lydia Awe\",\n        \"email\": \"lidiy@example.com\",\n        \"updated_at\": \"2025-05-28T04:11:13.000000Z\",\n        \"created_at\": \"2025-05-28T04:11:13.000000Z\",\n        \"id\": 2\n    }\n}"
+				},
+				{
+					"name": "Sign Up",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/",
+			"type": "default"
+		}
+	]
+}
